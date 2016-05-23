@@ -54,7 +54,8 @@ public:
     }
     return dummy.next;
   }
-    
+  
+  //return the last node after reversing
   ListNode* reverse(ListNode* prev, ListNode* begin, ListNode* end) {
         
     auto end_next = end->next; //record the end_next since it's going to be updated

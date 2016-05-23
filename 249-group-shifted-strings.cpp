@@ -24,7 +24,7 @@ public:
     unordered_map<string, vector<string>> d;
     for (auto word : strings) {
       string key = "";
-      for (auto j : word) {
+      for (auto j : word) { //key is not the string, is the distance between cur character and first character
 	key += to_string((j-word[0] + 26) % 26) + " "; //!!! or just keep negative
       }
       if (d.find(key) != d.end()) {

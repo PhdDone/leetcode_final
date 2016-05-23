@@ -3,13 +3,13 @@
 class Solution {
 public:
   Solution() {
-    mp = {{'0', '0'}, {'1', '1'}, {'6', '9'}, {'8', '8'}, {'9', '6'}};
+    mp = {{'0', '0'}, {'1', '1'}, {'6', '9'}, {'8', '8'}, {'9', '6'}}; //numbers combination
   }
     
   int strobogrammaticInRange(string low, string high) {
     int ans = 0, l = low.length(), u = high.length();
     for (int i = l; i <= u; i++) {
-      string temp(i, ' ');
+      string temp(i, ' '); //fill the numbers from mp from left and right to the middle
       strobogrammaticCount(temp, ans, low, high, 0, i - 1);
     }
     return ans;
@@ -25,7 +25,7 @@ private:
     for (auto m : mp) {
       temp[lo] = m.first;
       temp[hi] = m.second;
-      if ((lo == hi && m.first == m.second) || lo < hi)
+      if ((lo == hi && m.first == m.second) || lo < hi) //if lo == hi, means the middle of that number is odd
 	strobogrammaticCount(temp, ans, low, high, lo + 1, hi - 1);
     }
   }
