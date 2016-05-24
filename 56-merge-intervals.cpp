@@ -16,15 +16,13 @@
  * };
  */
 
-//sort the intervals by first element
-
 class Solution {
 public:
   vector<Interval> merge(vector<Interval>& intervals) {
     int n = intervals.size();
     if (n == 0) return vector<Interval>{};
         
-    sort(intervals.begin(), intervals.end(), cmp);
+    sort(intervals.begin(), intervals.end(), cmp); //sort the intervals by first element!!!
     vector<Interval> res;
     res.push_back(intervals[0]);
     for (int i = 1; i < n; ++i) {

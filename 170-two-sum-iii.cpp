@@ -13,7 +13,7 @@ public:
   bool find(int value) {
     for (int i = 0; i < nums.size(); i++) {
       int gap = value - nums[i];
-      if (dict.find(gap) != dict.end() && i != dict[gap])
+      if (dict.find(gap) != dict.end() && i != dict[gap]) //if i == dict[gap], two equal numbers
 	return true;
     }
     return false;

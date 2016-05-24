@@ -12,7 +12,7 @@ public:
     int maxp = 0, n = points.size();
     for (int i = 0; i < n; i++) {
       slopes.clear();
-      int duplicate = 1;
+      int duplicate = 1; //including it self
       for (int j = i + 1; j < n; j++) {
 	if (points[j].x == points[i].x && points[j].y == points[i].y) {
 	  duplicate++; //have several points in one place
@@ -23,7 +23,7 @@ public:
 	int dvs = gcd(dx, dy);
 	slopes[make_pair(dx / dvs, dy / dvs)]++;
       }
-      maxp = max(maxp, duplicate); 
+      maxp = max(maxp, duplicate); // duplicate is at least 1
       for (auto slope : slopes)
 	if (slope.second + duplicate > maxp)
 	  maxp = slope.second + duplicate;

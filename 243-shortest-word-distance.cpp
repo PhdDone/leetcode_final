@@ -18,3 +18,32 @@ public:
     return min;
   }
 };
+
+
+//solution 2 O(n)
+class Solution {
+public:
+  int shortestDistance(vector<string>& words, string word1, string word2) {
+    int res = INT_MAX;
+    int w1 = -1;
+    int w2 = -1;
+    int N = words.size();
+        
+    for (int i = 0; i < N; ++i) {
+      if (words[i] == word1) {
+	w1 = i;
+	if (w2 != -1) {
+	  res = min(res, w1 - w2); 
+	}
+      }
+            
+      if (words[i] == word2) {
+	w2 = i;
+	if (w1 != -1) {
+	  res = min(res, w2 - w1);
+	}
+      }
+    }
+    return res;
+  }
+};

@@ -23,7 +23,7 @@ public:
 	if(words[i]==word2)
 	  {
 	    t2 = i;
-	    if(t1 != -1 && t1 != t2 && ret > t2 - t1)
+	    if(t1 != -1 && t1 != t2 && ret > t2 - t1) //need to add t1 != t2!!!
 	      {
 		ret = t2 - t1;
 	      }
