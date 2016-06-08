@@ -3,3 +3,4 @@
 230 remove linked list element 
 240 search a 2d matrix ii http://bookshadow.com/weblog/2015/07/23/leetcode-search-2d-matrix-ii/
 347 top k frequent elements https://www.hrwhisper.me/leetcode-top-k-frequent-elements/
+351 android unlock patterns http://www.cnblogs.com/grandyang/p/5541012.html
