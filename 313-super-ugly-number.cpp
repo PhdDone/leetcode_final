@@ -16,7 +16,7 @@ Super ugly numbers are positive numbers whose all prime factors are in the given
 struct Node {
   int val,index,prime;
   Node(int index,int val,int prime):index(index),val(val),prime(prime){}
-  bool operator < (const Node &b)const {
+  bool operator < (const Node &b)const { //overload < !!
     return val > b.val;
   }
 };
@@ -38,7 +38,7 @@ public:
 	cur = q.top(); q.pop();
 	cur.val = cur.prime * ugly_nums[++cur.index];
 	q.push(cur);
-      } while (!q.empty() && q.top().val == ugly_nums[i] ////may have several same min values in the
+      } while (q.top().val == ugly_nums[i])； ////may have several same min values in the
 	       //priority Q, say [2, 7], we will get 14 twice
     }
     return ugly_nums[n - 1];
