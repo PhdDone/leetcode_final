@@ -12,7 +12,7 @@ public:
 	  i++;
 	else if(isAlphanumeric(s[j]) == false)
 	  j--;
-	else //use else here!!
+	else //use else here!!   both s[i] and s[j] are alphanumeric
 	  {
 	    if(isSame(s[i], s[j]) == true)
 	      {i++; j--;}
@@ -27,12 +27,15 @@ public:
       return true;
     else return false;
   }
+
+  //lowercaser
   bool isSame(char a, char b)
   {
+    int Atoa = 'a' - 'A';
     if(a >= 'A' && a <= 'Z')
-      a += 32;
+      a += Atoa;
     if(b >= 'A' && b <= 'Z')
-      b += 32;
+      b += Atoa;
     return a == b;
   }
 };
