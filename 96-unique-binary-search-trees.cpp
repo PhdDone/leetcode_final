@@ -29,4 +29,4 @@ public:
     return count[n];
   }
 };
-//for node i, the left must be [1i], the right must be [i+1, n]
+//for node i to be the root, the left must be [0, i-1], the right must be [i+1, n]
