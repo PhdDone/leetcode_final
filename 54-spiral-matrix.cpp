@@ -26,6 +26,7 @@ public:
         while (true) {
 	//from left to right
             for (int j = BeginY; j <= EndY; ++j) result.push_back(matrix[BeginX][j]);
+            //update BeginX here!!!
             if (++BeginX > EndX) break;
 	//from top to bottom
             for (int i = BeginX; i <= EndX; ++i) result.push_back(matrix[i][EndY]);
