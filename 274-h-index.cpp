@@ -9,7 +9,7 @@ Note: If there are several possible values for h, the maximum one is taken as th
 */
 class Solution {
 public:
-  int hIndex(vector<int>& citations) {
+  int hIndex(vector<int> &citations) {
     int N = citations.size();
     if (N == 0) return 0;
     int hIndex = 1;
@@ -42,7 +42,6 @@ public:
         
     int h = citations.size();
     
-    int i = 0;
     for(int i = 0;i < citations.size();i++)
       {
 	if(citations[i] >= h) //at position i, there are h papers left(including the current one)
