@@ -24,3 +24,29 @@ public:
 };
 
 //http://www.cnblogs.com/grandyang/p/4518674.html
+
+
+class Solution {
+public:
+  int rob(vector<int>& nums) {
+    int N = nums.size();
+    if (N == 0) return 0;
+    if (N == 1) return nums[0];
+    int left = 0; int right = N-1;
+    return max(rob(nums, left, right - 1), rob(nums, left + 1, right));
+  }
+
+  int rob(vector<int>& nums, int left, int right) {
+    if (left == right) return nums[left];
+    if (right - left == 1) return max(nums[left], nums[right]);
+    vector<int> dp(right + 1, 0); //allocate right + 1 space, because we will reach dp[right], which shoule have right + 1!!!
+    dp[left] = nums[left];
+    dp[left + 1] = max(nums[left + 1], nums[left]); //get the max, not just nums[left+1]
+
+    for (int i = left+2; i <= right; ++i) {
+      dp[i] = max(dp[i-1], dp[i-2] + nums[i]);
+    }
+    cout << dp.back() << endl;
+    return dp.back();
+  }
+};
