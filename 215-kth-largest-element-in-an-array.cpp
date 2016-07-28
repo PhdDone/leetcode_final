@@ -18,7 +18,7 @@ public:
     int i = start;
     int j = end;
     while (i <= j) {
-      while (ie <= end && nums[i] > pivot) {
+      while (i <= end && nums[i] > pivot) {
 	++i;
       }
       while (j >= start && nums[j] < pivot) {

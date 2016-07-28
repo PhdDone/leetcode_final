@@ -16,8 +16,10 @@ public:
         f[j][i] = (s[j] == s[i] && (i - j < 2 || f[j + 1][i - 1]));
         if (f[j][i] && max_len < (i - j + 1)) {
 	  max_len = i - j + 1;
-	  start = j; }
-      } }
+	  start = j;
+        }
+      }
+    }
     return s.substr(start, max_len);
   }
 };

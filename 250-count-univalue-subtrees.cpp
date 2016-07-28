@@ -10,7 +10,7 @@ A Uni-value subtree means all nodes of the subtree have the same value.
            / \   \
           5   5   5
 return 4.
-
+5, 5, 5, 5-5
 
 
 /**
@@ -34,7 +34,6 @@ public:
     if (root == nullptr)  { return true; }
     if (root->left == nullptr && root->right == nullptr) {
       ++count;
-      cout << count << endl;
       return true;
     }
     bool isleft = unival(root->left);

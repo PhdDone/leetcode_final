@@ -14,7 +14,7 @@ public:
     while(x != 0){
       int next_rst = rst * 10 + x % 10;
       x = x / 10;
-      if(next_rst/10 != rst) {
+      if(next_rst/10 != rst) { // test overflow!!
 	rst  = 0;
 	break;
       }

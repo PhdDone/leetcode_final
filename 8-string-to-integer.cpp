@@ -15,6 +15,7 @@ public:
     int num = 0;
     int sign = 1;
     int i = 0;
+    
     while (str[i] == ' ') i++;
     if (str[i] == '+') {
       sign = 1;
@@ -27,6 +28,7 @@ public:
         
     for (; i < N; ++i) {
       if (str[i] < '0' || str[i] > '9') break;
+      // check overflow!!
       if (num > INT_MAX / 10 || (num == INT_MAX / 10 && (str[i] - '0' > INT_MAX % 10))) {
 	return sign == -1? INT_MIN : INT_MAX;
       }
