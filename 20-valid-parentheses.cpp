@@ -12,11 +12,11 @@ public:
     string right = ")}]";
     stack<char> ps;
     for (int i = 0; i < n; ++i) {
-      if (left.find(s[i]) != string::npos) {
+      if (left.find(s[i]) != string::npos) { // string::npos
 	ps.push(s[i]);
       }
       else {
-	if (ps.empty()) return false; //check empty before pop!!!
+	if (ps.empty()) return false; // check empty before pop!!!
 	char top = ps.top();
 	if (left.find(top) != right.find(s[i])) {
 	  return false;

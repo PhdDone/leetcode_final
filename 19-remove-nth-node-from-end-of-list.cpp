@@ -36,7 +36,7 @@ public:
       n--;
     }
         
-    while (second->next) {
+    while (second->next) {   // first points to the prev node of the one we want to delete
       second = second -> next;
       first = first -> next;
     }
