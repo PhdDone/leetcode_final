@@ -21,9 +21,9 @@ public:
 	if (left.find(top) != right.find(s[i])) {
 	  return false;
 	}
-	ps.pop();
+	ps.pop(); // remeber to pop
       }
     }
-    return ps.empty();
+    return ps.empty(); // check empty instead of return true
   }
 };
