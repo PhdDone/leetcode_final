@@ -7,6 +7,7 @@ Given an array of n integers where n > 1, nums, return an array output such that
 */
 
 //http://fisherlei.blogspot.com/2015/10/leetcode-product-of-array-except-self.html
+//output[i] = ouput[before_i] * output[after_i]
 //maintain a products array, store the product of all the left nodes
 //from right to left, multiply the products
 class Solution {

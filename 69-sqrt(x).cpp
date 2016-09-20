@@ -9,7 +9,7 @@ public:
       if (x / mid == mid) return mid;
       if (x / mid > mid) {
         left = mid + 1;
-        last_mid = mid;
+        last_mid = mid; //record last_mid when mid*mid < x
       } else {
         right = mid - 1;
       }

@@ -3,21 +3,21 @@ There is a new alien language which uses the latin alphabet. However, the order 
  */
 
 
+//http://www.cnblogs.com/jcliBlogger/p/4758761.html
 
 Solution {
-    typedef unordered_map<char, unordered_set<char>> Graph;
-public:
-    string alienOrder(vector<string>& words) {
-        if (words.size() == 1) return words[0]; //!!! only one word !!!
-        Graph g = makeGraph(words);
-        unordered_map<char, int> indegree = computeIndegree(g);
-        
-        queue<char> zeroIndegreeChar;
-        string order;
-        for (const auto& x : indegree) {
-            cout << x.first << " " << x.second << endl;
-            if (x.second == 0) {
-                zeroIndegreeChar.push(x.first);
+  typedef unordered_map<char, unordered_set<char>> Graph;
+ public:
+  string alienOrder(vector<string>& words) {
+    if (words.size() == 1) return words[0]; //!!! only one word !!!
+    Graph g = makeGraph(words);
+    unordered_map<char, int> indegree = computeIndegree(g);
+    
+    queue<char> zeroIndegreeChar;
+    string order;
+    for (const auto& x : indegree) {
+      if (x.second == 0) {
+        zeroIndegreeChar.push(x.first);
             }
         }
         
