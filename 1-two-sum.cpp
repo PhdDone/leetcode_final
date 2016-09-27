@@ -1,15 +1,12 @@
-/*
-Suppose a sorted array is rotated at some pivot unknown to you beforehand.
+/*Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 
-(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+  You may assume that each input would have exactly one solution.
 
-  You are given a target value to search. If found in the array return its index, otherwise return -1.
+  Example:
+  Given nums = [2, 7, 11, 15], target = 9,
 
-You may assume no duplicate exists in the array.
-
-Show Company Tags
-Show Tags
-Show Similar Problems
+  Because nums[0] + nums[1] = 2 + 7 = 9,
+  return [0, 1].
 */
 
 class Solution {

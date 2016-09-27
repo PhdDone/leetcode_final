@@ -60,7 +60,7 @@ public:
     return deserialize(tokens, index);
   }
     
-  TreeNode* deserialize(const vector<string>& data, int& index) {
+  TreeNode* deserialize(const vector<string>& data, int& index) { //index use references
     if (index >= data.size() || data[index] == "#") {
       return nullptr;
     }

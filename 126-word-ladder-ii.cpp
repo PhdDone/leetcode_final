@@ -142,7 +142,7 @@ swap(cur, next);
 
 class Solution {
 public:
-  unordered_map<string,vector<string> > mp; // result map
+  unordered_map<string,vector<string> > mp; // result map, string to it's next state
   vector<vector<string> > res;
   vector<string> path;
 

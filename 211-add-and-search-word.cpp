@@ -79,3 +79,65 @@ int main() {
   cout << wordDictionary.search("a");
   return 0;
 }
+
+struct TrieNode {
+  bool isWord = false;
+  vector<TrieNode*> next;
+  TrieNode() {
+    next = vector<TrieNode*>(26, nullptr);
+  }
+};
+
+class WordDictionary {
+private:
+  TrieNode root;
+public:
+
+  // Adds a word into the data structure.
+  void addWord(string word) {
+    int N = word.size();
+    TrieNode* cur = &root;
+    for (int i = 0; i < N; ++i) {
+      if ((cur->next)[word[i] - 'a'] == nullptr) {
+        (cur->next)[word[i] - 'a'] = new TrieNode();
+        cout << word[i] - 'a' << endl;
+      }
+      cur = (cur->next)[word[i] - 'a'];
+    }
+    cur->isWord = true;
+  }
+
+  // Returns if the word is in the data structure. A word could
+  // contain the dot character '.' to represent any one letter.
+  bool search(string word) {
+    TrieNode* cur = &root;
+    return search(word, cur, 0);
+  }
+
+  bool search(const string& word, TrieNode* cur, int index) { //use index
+    //cout << index << endl;
+    if (cur == nullptr) return false;
+    int N = word.size();
+    if (index == N) return cur->isWord; // when stop!!
+
+    for (int i = index; i < N; ++i) {
+      if (word[i] == '.') {
+        for (int j = 0; j < 26; ++j) {
+          if (search(word, (cur->next)[j], index + 1)) // use index + 1, not ++index !!!
+            return true;
+        }
+      } else {
+        if ((cur->next)[word[i] - 'a'] == nullptr) return false;
+        else {
+          return search(word, (cur->next)[word[i] - 'a'], index + 1);
+        }
+      }
+    }
+    return false;
+  }
+};
+
+// Your WordDictionary object will be instantiated and called as such:
+// WordDictionary wordDictionary;
+// wordDictionary.addWord("word");
+// wordDictionary.search("pattern");

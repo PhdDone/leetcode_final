@@ -15,8 +15,7 @@ public:
       int curMin = StackMin.top();
       if (x < curMin) {
 	StackMin.push(x);
-      }
-      else {
+      } else {
 	StackMin.push(curMin);
       }
     }
