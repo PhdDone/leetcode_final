@@ -30,7 +30,5 @@ public:
     }
     if (start == res.size()) return "0";
     return res.substr(start, res.size() - start); //substr
-        
-        
   }
 };

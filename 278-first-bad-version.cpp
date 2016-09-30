@@ -17,6 +17,6 @@ public:
       else
 	left = mid + 1;
     }
-    return left; //just have to remeber
+    return left; //just have to remeber, or give an example first
   }
 };

@@ -27,7 +27,8 @@ public:
     }
     return oneDiff; //don't simply return true here
   }
-    
+
+  // s is longer than t.
   bool isOneDeleted(const string& s, const string& t) {
     int cur = 0;
     while (s[cur] == t[cur] && cur < t.size()) cur++;

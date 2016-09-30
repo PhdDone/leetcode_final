@@ -5,14 +5,49 @@
 347 top k frequent elements https://www.hrwhisper.me/leetcode-top-k-frequent-elements/
 351 android unlock patterns http://www.cnblogs.com/grandyang/p/5541012.html
 */
-#include <iostream>
 
+#include<iostream>
 using namespace std;
-int main() {
-  int a = 1 - 1;
-  int b = a >> 1;
-  int c = 1 + b;
-  int d = 1 + (1 - 1) >> 1;
-  cout << a << " " << b << " " << c << " ";
+
+class A
+{
+public:
+  void foo()
+  {
+    printf("1\n");
+  }
+  virtual void fun()
+  {
+    printf("2\n");
+  }
+};
+class B : public A
+{
+public:
+  void foo()
+  {
+    printf("3\n");
+  }
+  void fun()
+  {
+    printf("4\n");
+  }
+};
+int main(void)
+{
+  /*  A a;
+  B b;
+  A *p = &a;
+  p->foo();
+  p->fun();
+  p = &b;
+  p->foo();
+  p->fun();
+  */
+  unsigned* a = new unsigned;
+  *a = 3;
+  cout << a << endl;
+  cout << *a << endl;
+  delete a;
   return 0;
 }
