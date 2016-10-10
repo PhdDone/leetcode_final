@@ -42,3 +42,29 @@ public:
     return result;
   }
 };
+
+class Solution {
+public:
+  vector<string> summaryRanges(vector<int>& nums) {
+    vector<string> res;
+    int N = nums.size();
+    if (N == 0) return res;
+    int left = nums[0];
+    for (int i = 1; i < N; ++i) {
+      if (nums[i] - nums[i-1] != 1) {
+        if (left == nums[i-1]) {
+          res.push_back(to_string(left));
+        } else {
+          res.push_back(to_string(left) + "->" + to_string(nums[i-1]));
+        }
+        left = nums[i];
+      }
+    }
+    if (left != nums[N-1]) {
+      res.push_back(to_string(left) + "->" + to_string(nums[N-1]));
+    } else {
+      res.push_back(to_string(left));
+    }
+    return res;
+  }
+};
