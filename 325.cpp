@@ -38,13 +38,13 @@ class Solution {
 public:
   int maxSubArrayLen(vector<int>& nums, int k) {
     unordered_map<int, int> m;
-    m.insert(pair<int, int>(0, -1));
+    m.insert(pair<int, int>(0, -1)); //if accumulated sum == k, the current index i - (-1) == i + i is the len!!
         
     int acc = 0;
     int result = 0;
     for(int i = 0, j = nums.size(); i < j; ++i) {
       acc += nums[i];
-      if (m.count(acc) == 0) {
+      if (m.count(acc) == 0) { //only insert if we don't have it!!!
 	m.insert(pair<int, int>(acc, i));
       }
       auto iter = m.find(acc - k); // acc - k !!!!
@@ -55,3 +55,7 @@ public:
     return result;
   }
 };
+
+//record accumulated sum, try to find (key = sum - k)
+
+//https://segmentfault.com/a/1190000005771068

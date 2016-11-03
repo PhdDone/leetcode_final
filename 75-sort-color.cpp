@@ -2,3 +2,5 @@
 
   Here, we will use the integers 0, 1, and 2 to represent the color red, white, and blue respectively.
 */
+
+//https://segmentfault.com/a/1190000003761919

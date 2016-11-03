@@ -37,8 +37,7 @@ public:
 	--step;
 	visited[i] = false;
 	path.pop_back();
-      }
-                
+      }                
     }
   }
 };

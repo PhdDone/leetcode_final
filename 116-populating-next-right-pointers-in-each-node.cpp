@@ -48,7 +48,7 @@ public:
       root->left->next = root->right;
     }
     if (root->right) {
-      root->right->next = root->next? root->next->left : nullptr; //perfect binary tree
+      root->right->next = root->next? root->next->left : nullptr; //assume perfect binary tree
     }
     connect(root->left);
     connect(root->right);

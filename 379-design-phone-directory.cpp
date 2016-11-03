@@ -38,6 +38,8 @@ directory.check(2);
 //http://www.cnblogs.com/grandyang/p/5735205.html
 
 //trick: the most recent released one should be returned first!!!!
+
+//TLE
 class PhoneDirectory {
 public:
   /** Initialize your data structure here
@@ -132,6 +134,65 @@ public:
     used_.erase(number);
   }
   unordered_set<int> used_;
+  vector<int> numbers_;
+  int next_av_;
+};
+
+/**
+ * Your PhoneDirectory object will be instantiated and called as such:
+ * PhoneDirectory obj = new PhoneDirectory(maxNumbers);
+ * int param_1 = obj.get();
+ * bool param_2 = obj.check(number);
+ * obj.release(number);
+ */
+
+
+//accepted
+class PhoneDirectory {
+public:
+  /** Initialize your data structure here
+      @param maxNumbers - The maximum numbers that can be stored in the phone directory. */
+  PhoneDirectory(int maxNumbers) {
+    numbers_.resize(maxNumbers);
+    used_.resize(maxNumbers, false);
+    for (int i = 0; i < maxNumbers; ++i) {
+      numbers_[i] = i;
+    }
+    next_av_ = 0;
+  }
+
+  /** Provide a number which is not assigned to anyone.
+      @return - Return an available number. Return -1 if none is available. */
+  int get() {
+    if (next_av_ == numbers_.size() && recycled.empty()) {
+      return -1;
+    } else {
+      int res = 0;
+      if (next_av_ < numbers_.size()) {
+        res = numbers_[next_av_++];
+      } else {
+        res = recycled.top();
+        recycled.pop();
+      }
+      used_[res] = true;
+      return res;
+    }
+  }
+
+  /** Check if a number is available or not. */
+  bool check(int number) {
+    return number >= 0 && number <= used_.size() && used_[number] == false;
+  }
+
+  /** Recycle or release a number. */
+  void release(int number) {
+    if (number >= 0 && number <= used_.size() && used_[number]) { //!!! check the whether we need to release it !!
+      used_[number] = false;
+      recycled.push(number);
+    }
+  }
+  stack<int> recycled;
+  vector<bool> used_;
   vector<int> numbers_;
   int next_av_;
 };

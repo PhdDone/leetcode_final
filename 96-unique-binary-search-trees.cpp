@@ -29,4 +29,10 @@ public:
     return count[n];
   }
 };
+
+/*
+Count[3] = Count[0]*Count[2]  (1为根的情况)
+  + Count[1]*Count[1]  (2为根的情况)
+  + Count[2]*Count[0]  (3为根的情况)
+*/  
 //for node i to be the root, the left must be [0, i-1], the right must be [i+1, n]

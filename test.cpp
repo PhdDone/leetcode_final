@@ -7,6 +7,8 @@
 */
 
 #include<iostream>
+#include<vector>
+
 using namespace std;
 
 class A
@@ -33,21 +35,49 @@ public:
     printf("4\n");
   }
 };
+
+
+class Solution {
+public:
+  bool isMatch(const string& s, const string& p) {
+    int m = s.size(), n = p.size();
+    vector<vector<bool>> dp(m+1, vector<bool>(n+1,false));
+    dp[0][0] = true;
+
+    for(int i=0; i<=m; i++) {
+      for(int j=1; j<=n; j++) {
+        if(p[j-1]!='.' && p[j-1]!='*') {
+          if(i>0 && s[i-1]==p[j-1] && dp[i-1][j-1])
+            dp[i][j] = true;
+        }
+        else if(p[j-1]=='.') {
+          if(i>0 && dp[i-1][j-1])
+            dp[i][j] = true;
+        }
+        else if(j>1) {  //'*' cannot be the 1st element
+          if(dp[i][j-1] || dp[i][j-2])  // match 0 or 1 preceding element
+            dp[i][j] = true;
+          else if(i>0 && (p[j-2]==s[i-1] || p[j-2]=='.') && dp[i-1][j]) // match multiple preceding elements
+            dp[i][j] = true;
+        }
+      }
+    }
+    for (int i = 0; i < m + 1; ++i) {
+      for (int j = 0; j < n + 1; ++j) {
+        cout << dp[i][j] << " ";
+      }
+      cout << endl;
+    }
+    cout << dp[m][n] << endl;
+    return dp[m][n];
+  }
+};
+
 int main(void)
 {
-  /*  A a;
-  B b;
-  A *p = &a;
-  p->foo();
-  p->fun();
-  p = &b;
-  p->foo();
-  p->fun();
-  */
-  unsigned* a = new unsigned;
-  *a = 3;
-  cout << a << endl;
-  cout << *a << endl;
-  delete a;
+  Solution s;
+  string a = "aaaaaa";
+  string b = "a*";
+  s.isMatch(a, b);
   return 0;
 }

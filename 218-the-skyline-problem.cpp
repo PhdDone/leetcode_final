@@ -7,9 +7,11 @@ using namespace std;
 class Solution {
 public:
   vector<pair<int, int>> getSkyline(vector<vector<int>> &buildings) {
-    vector<pair<int, int>> h, res;
-    multiset<int> m;
-    int pre = 0, cur = 0;
+    vector<pair<int, int>> h, res; //h.first is x value, h.second is height
+    multiset<int> m; //multiset sort from small to large, the rbegin is the largest value
+
+    int pre = 0, cur = 0; // init pre and cur
+
     for (auto &a : buildings) {
       h.push_back({a[0], -a[2]});
       h.push_back({a[1], a[2]});
@@ -20,6 +22,7 @@ public:
       if (a.second < 0) // make the left height smaller than zero, to distinguish left and right
         m.insert(-a.second);
       else
+        //!!! use find to only erase one, if no find, all will be erased
         m.erase(m.find(a.second)); // if it's a right node, then remove the left node
       //!!! after removing the left node, the cur may change, because then we query the multiset, cur will
       //be the cur highest hight

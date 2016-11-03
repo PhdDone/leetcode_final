@@ -27,7 +27,10 @@ Design an algorithm to serialize and deserialize a binary tree. There is no rest
  
 #include <sstream>
 #include <iterator>
- 
+
+
+//preOrder traverse
+
 class Codec {
 public:
     
@@ -65,9 +68,9 @@ public:
       return nullptr;
     }
     TreeNode* node = new TreeNode(stoi(data[index])); //string to int
-    index++;
+    ++index;
     node->left = deserialize(data, index);
-    index++;
+    ++index;
     node->right = deserialize(data, index);
     return node;
   }
@@ -76,3 +79,9 @@ public:
 // Your Codec object will be instantiated and called as such:
 // Codec codec;
 // codec.deserialize(codec.serialize(root));
+
+    1
+   /
+  2       => 1,2,3,#,#,#,#
+ /
+3
