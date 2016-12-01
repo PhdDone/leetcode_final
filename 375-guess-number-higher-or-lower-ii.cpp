@@ -26,3 +26,21 @@ Third round:  You guess 9, I tell you that it's lower. You pay $9.
   You end up paying $5 + $7 + $9 = $21.
   Given a particular n ≥ 1, find out how much money you need to have to guarantee a win.
 */
+
+class Solution {
+public:
+  int getMoneyAmount(int n) {
+    vector<vector<int>> dp(n+1, vector<int>(n+1, 0));
+    return solver(dp, 1, n);
+  }
+
+  int solver(vector<vector<int>>& dp, int L, int R) {
+    if (L >= R) return 0;
+    if (dp[L][R]) return dp[L][R];
+    dp[L][R] = INT_MAX;
+    for (int i = L; i <= R; ++i) {
+      dp[L][R] = min(dp[L][R], i + max(solver(dp, L, i-1), solver(dp, i+1, R)));
+    }
+    return dp[L][R];
+  }
+};
